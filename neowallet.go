@@ -7,10 +7,11 @@ import (
 )
 
 type Wallet struct {
-	PublicKey  []byte
-	PrivateKey []byte
-	Address    string
-	WIF        string
+	PublicKey       []byte
+	PrivateKey      []byte
+	Address         string
+	WIF             string
+	HashedSignature []byte
 }
 
 func hex2bytes(hexstring string) (b []byte) {
@@ -26,10 +27,11 @@ func GeneratePublicKeyFromPrivateKey(privateKey string) (*Wallet, error) {
 		return &Wallet{}, err
 	}
 	wallet := &Wallet{
-		PublicKey:  priv.PublicKey.ToBytes(),
-		PrivateKey: priv.ToBytes(),
-		Address:    priv.ToNeoAddress(),
-		WIF:        priv.ToWIF(),
+		PublicKey:       priv.PublicKey.ToBytes(),
+		PrivateKey:      priv.ToBytes(),
+		Address:         priv.ToNeoAddress(),
+		WIF:             priv.ToWIF(),
+		HashedSignature: priv.ToNeoSignature(),
 	}
 	return wallet, nil
 }
@@ -42,10 +44,11 @@ func GenerateFromWIF(wif string) (*Wallet, error) {
 	}
 
 	wallet := &Wallet{
-		PublicKey:  priv.PublicKey.ToBytes(),
-		PrivateKey: priv.ToBytes(),
-		Address:    priv.ToNeoAddress(),
-		WIF:        priv.ToWIF(),
+		PublicKey:       priv.PublicKey.ToBytes(),
+		PrivateKey:      priv.ToBytes(),
+		Address:         priv.ToNeoAddress(),
+		WIF:             priv.ToWIF(),
+		HashedSignature: priv.ToNeoSignature(),
 	}
 	return wallet, nil
 }

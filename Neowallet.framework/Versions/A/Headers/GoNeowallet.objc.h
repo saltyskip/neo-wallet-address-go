@@ -25,6 +25,8 @@
 - (void)setAddress:(NSString*)v;
 - (NSString*)wif;
 - (void)setWIF:(NSString*)v;
+- (NSData*)hashedSignature;
+- (void)setHashedSignature:(NSData*)v;
 @end
 
 FOUNDATION_EXPORT GoNeowalletWallet* GoNeowalletGenerateFromWIF(NSString* wif, NSError** error);
