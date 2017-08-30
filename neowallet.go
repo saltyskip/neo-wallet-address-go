@@ -30,7 +30,7 @@ func GeneratePublicKeyFromPrivateKey(privateKey string) (*Wallet, error) {
 		PublicKey:       priv.PublicKey.ToBytes(),
 		PrivateKey:      priv.ToBytes(),
 		Address:         priv.ToNeoAddress(),
-		WIF:             priv.ToWIF(),
+		WIF:             priv.ToWIFC(),
 		HashedSignature: priv.ToNeoSignature(),
 	}
 	return wallet, nil
@@ -47,7 +47,7 @@ func GenerateFromWIF(wif string) (*Wallet, error) {
 		PublicKey:       priv.PublicKey.ToBytes(),
 		PrivateKey:      priv.ToBytes(),
 		Address:         priv.ToNeoAddress(),
-		WIF:             priv.ToWIF(),
+		WIF:             priv.ToWIFC(),
 		HashedSignature: priv.ToNeoSignature(),
 	}
 	return wallet, nil
