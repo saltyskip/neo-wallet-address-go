@@ -53,6 +53,6 @@ func GenerateFromWIF(wif string) (*Wallet, error) {
 	return wallet, nil
 }
 
-func Sign(data []byte, key int64) ([]byte, error) {
+func Sign(data []byte, key string) ([]byte, error) {
 	return btckey.Sign(data, key)
 }
